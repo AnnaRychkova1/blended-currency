@@ -1,13 +1,16 @@
 import { RiExchangeDollarFill } from 'react-icons/ri';
 import styles from './ExchangeForm.module.css';
-import { exchangeCurrency } from 'service/exchangeAPI';
+import { useDispatch } from 'react-redux';
+
+import { fetchExchange } from 'reduxState/currencyOperations';
 
 export const ExchangeForm = () => {
+  const dispatch = useDispatch();
+
   const handleSubmit = evt => {
     evt.preventDefault();
     const [amount, from, , to] = evt.target.elements.currency.value.split(' ');
-    console.log({ to, from, amount });
-    exchangeCurrency({ to, from, amount });
+    dispatch(fetchExchange({ to, from, amount }));
   };
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
