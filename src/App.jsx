@@ -5,25 +5,20 @@ import Rates from './pages/Rates';
 import { Header } from './components';
 import { fetchBaseCurrency } from 'reduxState/currencyOperations';
 import { useDispatch } from 'react-redux';
+import { setBaseCurrency } from 'reduxState/currencySlice';
 
 export const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    const options = {
-      enableHighAccuracy: true,
-      timeout: 5000,
-      maximumAge: 0,
+    const success = pos => {
+      dispatch(fetchBaseCurrency(pos.coords));
     };
 
-    function success(pos) {
-      dispatch(fetchBaseCurrency(pos.coords));
-    }
+    const error = () => {
+      dispatch(setBaseCurrency('USD'));
+    };
 
-    function error(err) {
-      console.warn(`ERROR(${err.code}): ${err.message}`);
-    }
-
-    navigator.geolocation.getCurrentPosition(success, error, options);
+    navigator.geolocation.getCurrentPosition(success, error);
   }, [dispatch]);
 
   return (
