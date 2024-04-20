@@ -40,6 +40,10 @@ const currencySlice = createSlice({
 });
 
 export const selectBaseCurrency = state => state.currency.baseCurrency;
+export const selectExchangeInfo = state => state.currency.exchangeInfo;
+export const selectIsLoading = state => state.currency.isLoading;
+export const selectIsError = state => state.currency.isError;
+
 export const currencyReducer = currencySlice.reducer;
 
 export const { setBaseCurrency } = currencySlice.actions;
