@@ -4,8 +4,7 @@ import { Outlet, NavLink } from 'react-router-dom';
 import { MdCurrencyExchange } from 'react-icons/md';
 import { useSelector } from 'react-redux';
 import styles from './Header.module.css';
-import { selectBaseCurrency } from 'reduxState/currencySlice';
-import { SelectRates } from '..';
+import { selectBaseCurrency } from 'reduxState/selectors';
 
 export const Header = () => {
   const baseCurrency = useSelector(selectBaseCurrency);
