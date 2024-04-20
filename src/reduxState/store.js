@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { currencyReducer } from './currencySlice';
+import { currencyReducer } from './currency/currencySlice';
 import {
   persistStore,
   persistReducer,
@@ -11,11 +11,13 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import { filterReducer } from './filter/filterSlice';
 
 const persistConfig = {
   key: 'baseCurrency',
   version: 1,
   storage,
+  whitelist: ['baseCurrency'],
 };
 
 const persistedReducer = persistReducer(persistConfig, currencyReducer);
@@ -23,6 +25,7 @@ const persistedReducer = persistReducer(persistConfig, currencyReducer);
 export const store = configureStore({
   reducer: {
     currency: persistedReducer,
+    filter: filterReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
