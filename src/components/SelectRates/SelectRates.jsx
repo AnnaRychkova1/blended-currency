@@ -6,7 +6,7 @@ import styles from './SelectRates.module.css';
 
 import './ReactSelect.css';
 import { useDispatch } from 'react-redux';
-import { setBaseCurrency } from 'reduxState/currencySlice';
+import { setBaseCurrency } from '../../reduxState/currency/currencySlice';
 
 export const SelectRates = ({ baseCurrency }) => {
   const dispatch = useDispatch();
