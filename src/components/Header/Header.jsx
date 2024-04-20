@@ -38,7 +38,7 @@ export const Header = () => {
             </ul>
           </nav>
         </div>
-        {baseCurrency && <p>Your base currency {baseCurrency}</p>}
+        {baseCurrency && <SelectRates baseCurrency={baseCurrency} />}
       </header>
       <Suspense fallback={null}>
         <Outlet />
