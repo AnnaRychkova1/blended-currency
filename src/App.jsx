@@ -3,9 +3,9 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import Home from './pages/Home';
 import Rates from './pages/Rates';
 import { Header } from './components';
-import { fetchBaseCurrency } from 'reduxState/currencyOperations';
+import { fetchBaseCurrency } from 'reduxState/currency/currencyOperations';
 import { useDispatch } from 'react-redux';
-import { setBaseCurrency } from 'reduxState/currencySlice';
+import { setBaseCurrency } from 'reduxState/currency/currencySlice';
 
 export const App = () => {
   const dispatch = useDispatch();

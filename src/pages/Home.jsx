@@ -12,7 +12,7 @@ import {
   selectExchangeInfo,
   selectIsError,
   selectIsLoading,
-} from 'reduxState/currencySlice';
+} from 'reduxState/selectors';
 
 const Home = () => {
   const isError = useSelector(selectIsError);
