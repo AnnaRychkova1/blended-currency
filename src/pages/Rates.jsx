@@ -39,7 +39,7 @@ const Rates = () => {
           bottom
           title={
             <Wave
-              text={`$ $ $ Current exchange rate for 1 ${'UAH'} $ $ $`}
+              text={`$ $ $ Current exchange rate for 1 ${baseCurrency} $ $ $`}
               effect="fadeOut"
               effectChange={4.0}
             />
